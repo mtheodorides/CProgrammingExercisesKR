@@ -2,7 +2,7 @@
 
 int main() 
 {
-	temperatureConversionReverse();
+	printEOF();
 }
 
 /* Exercise 1-1: Run the "hello, world" program on your system. Experiment with leaving out parts of the program, to see what error 
@@ -70,4 +70,22 @@ int temperatureConversionReverse() {
 	for(fahr = 300; fahr >= 0; fahr -= 20) {
 		printf("%3d %6.1f\n", fahr, (5.0/9.0)*(fahr-32));
 	}
+}
+
+/* Exercise 1-6: Verify that the expression getchar() != EOF is 0 or 1. */
+
+int verifyEOF() {
+	char result = getchar() != EOF;
+	if(result == 0 || result == 1) {
+		printf("It's Zero or One!\n");
+	}
+	else {
+		printf("It's not Zero or One?\n");
+	}
+}
+
+/* Exercise 1-7: Write a program to print the value of EOF */
+
+int printEOF() {
+	printf("%d\n", EOF);
 }
