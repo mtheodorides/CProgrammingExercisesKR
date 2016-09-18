@@ -2,7 +2,7 @@
 
 int main() 
 {
-	printEOF();
+	reduceBlanks();
 }
 
 /* Exercise 1-1: Run the "hello, world" program on your system. Experiment with leaving out parts of the program, to see what error 
@@ -88,4 +88,35 @@ int verifyEOF() {
 
 int printEOF() {
 	printf("%d\n", EOF);
+}
+
+/* Exercise 1-8: Write a program to count blanks, tabs, and newlines. */
+
+int countsSpaces() {
+	int c, count = 0;
+
+	while((c = getchar()) != EOF) {
+		if (c == '\n' || c == '\t' || c == ' ') {
+			++count;
+		}
+	}
+	printf("Number of Blanks, Tabs, and Newlines: %d\n", count);
+}
+
+/* Exercise 1-9: Write a program to copy its input to its output, replacing each string of one or more blanks
+by a single blank */
+
+int reduceBlanks() {
+	char prevBlank = 0;
+	int c;
+
+	while((c = getchar()) != EOF) {
+		if(c != ' ') {
+			prevBlank = 0;
+			putchar(c);
+		} else if(prevBlank == 0) {
+			prevBlank = 1;
+			putchar(c);
+		}
+	}
 }
