@@ -2,7 +2,7 @@
 
 int main() 
 {
-	wordPerLine();
+	visualizeBlanks();
 }
 
 /* Exercise 1-1: Run the "hello, world" program on your system. Experiment with leaving out parts of the program, to see what error 
@@ -121,10 +121,28 @@ int reduceBlanks() {
 	}
 }
 
-/* Exercise 1-10: Write a program to copy its input to its output, replacing each tab gby \t, each backspace by \b, and each backslash by \\.
+/* Exercise 1-10: Write a program to copy its input to its output, replacing each tab by \t, each backspace by \b, and each backslash by \\.
 This makes tabs and backspaces visible in an unambiguous way */
 
-/* Exercise 1-11: How would you test the word count program? What kings of input are most likely to uncover bugs if there are any? */
+int visualizeBlanks() {
+	int c;
+	while((c = getchar()) != EOF) {
+		if(c == '\t') {
+			putchar('\\');
+			putchar('t');
+		} else if(c == '\\') {
+			putchar('\\');
+			putchar('\\');
+		} else if(c == '\b') {
+			putchar('\\');
+			putchar('b');
+		} else {
+			putchar(c);
+		}
+	}
+}
+
+/* Exercise 1-11: How would you test the word count program? What kinds of input are most likely to uncover bugs if there are any? */
 
 /* Exercise 1-12: Write a program that prints ints input one word per line. */
 
